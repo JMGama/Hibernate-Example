@@ -2,7 +2,7 @@
 <!DOCTYPE hibernate-mapping PUBLIC
 	"-//Hibernate/Hibernate Mapping DTD 3.0//EN"
 	"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
-
+<!-- En este documento creamos la referencia del objeto Employee y su Tabla en la BD -->
 <hibernate-mapping>
 	<class name="com.nt.domain.Employee" table="Employee">
 		<id name="eid" column="EMPLOYEE_ID" />

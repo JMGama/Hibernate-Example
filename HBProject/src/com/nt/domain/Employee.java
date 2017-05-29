@@ -1,5 +1,5 @@
 package com.nt.domain;
-
+//Este es solo el Bean para el objeto Employee con sus variables, getters y setters.
 public class Employee {
 	//properties
 	private int eid;

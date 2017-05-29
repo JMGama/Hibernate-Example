@@ -15,24 +15,26 @@ public class SaveObjectTest {
 		Employee emp = null;
 		Transaction tx = null;
 		
-		//Activate HB framework (Bootstrao Hibernate)
+		//Activa el Framework de hibernate.
 		cfg = new Configuration();
-		//Read both mappig, cfg file data
+		//Lee la configuracion que le dimos al Hibernate en el documento XML junto con el mapping.
 		cfg = cfg.configure("/com/nt/cfgs/hibernate.cfg.xml");
-		//Build session factory object
+		//Crea nuestro objeto de tipo session factory.
 		factory = cfg.buildSessionFactory();
-		//Open Session with DB Software
+		//Abrer la sesion con la conexion a la BD.
 		ses = factory.openSession();
 		
-		//Create object for Domain class
-		/*emp = new Employee();
+		//Creamos el objeto para nuestra clase Domain de tipo Employee.
+		
+		emp = new Employee();
 		emp.setEid(10001);
 		emp.setFirstName("Jose");
 		emp.setLastName("Gama");
-		emp.setEmail("josegamaes@gmail.com");*/
+		emp.setEmail("josegamaes@gmail.com");
+		
 		
 		try {
-			//Consult from the DB
+			//Inicia una transaccion con Hibernate y hace nuestra Consulta a la BD.
 			/*
 			tx = ses.beginTransaction();
 			emp = (Employee) ses.get(Employee.class, 10001);
@@ -40,16 +42,16 @@ public class SaveObjectTest {
 			System.out.println(emp);
 			*/
 			
-			//Insert in the DB
-			/*tx = ses.beginTransaction();
+			//Inicia una transaccion con Hibernate y hace nuestro Insert a la BD.
+			tx = ses.beginTransaction();
 			ses.save(emp);
 			tx.commit();
-			System.out.println("Object is saved/record is inserted");*/
+			System.out.println("Object is saved/record is inserted");
 		}catch (Exception e) {
 			tx.rollback();
 		}
 		
-		//Close Object and DB Software
+		//Cierra la session a la BD y el objeto tipo Session factory.
 		ses.close();
 		factory.close();
 	}
